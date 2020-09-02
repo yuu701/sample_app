@@ -1,0 +1,14 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <!--aside　補足や脚注、用語の説明など、本筋とは別に触れておきたい内容または-->
+  <!--本筋から分離して問題のない内容を含んだセクションを表す-->
+  <aside class="col-md-4">
+    <!--section 記事の中の章分けやパーツ、ページコンテンツ内の要素の一つ一つをラップするようなタグ。-->
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
