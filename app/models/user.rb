@@ -13,4 +13,11 @@ class User < ApplicationRecord
   # ユーザーが6字分のスペースといった文字列を入力して更新しようとすると、
   # バリデーションが適用されずに更新してしまうのでpresence: trueが必要。 
   validates :password, presence: true, length: { minimum: 6 }
+  
+   # 渡された文字列のハッシュ値を返す
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 end

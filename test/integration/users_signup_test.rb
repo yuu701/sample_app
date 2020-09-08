@@ -32,6 +32,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     # 指定されたリダイレクト先に移動するメソッド
     follow_redirect!
     assert_template 'users/show'
-    assert_not flash.empty?
+    assert is_logged_in?
   end
 end
