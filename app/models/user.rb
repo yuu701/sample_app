@@ -13,7 +13,7 @@ class User < ApplicationRecord
   # レコードが追加されたときだけ。
   # ユーザーが6字分のスペースといった文字列を入力して更新しようとすると、
   # バリデーションが適用されずに更新してしまうのでpresence: trueが必要。 
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
    # 渡された文字列のハッシュ値を返す
   def User.digest(string)
